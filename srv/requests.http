@@ -1,0 +1,7 @@
+### GET Risks
+GET http://localhost:4004/service/risk/Risks
+
+
+### GET Mitigations
+GET http://localhost:4004/service/risk/Mitigations
+
