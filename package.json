@@ -14,11 +14,12 @@
     "express": "^4"
   },
   "devDependencies": {
-    "@sap/ux-specification": "^1.96.2",
+    "@sap/ux-specification": "^1.96.9",
     "sqlite3": "^5.0.2"
   },
   "scripts": {
-    "start": "cds run"
+    "start": "cds run",
+    "watch-risks": "cds watch --open risks/webapp/index.html#fe-lrop-v4"
   },
   "eslintConfig": {
     "extends": "eslint:recommended",
@@ -44,5 +45,8 @@
       "no-console": "off",
       "require-atomic-updates": "off"
     }
-  }
+  },
+  "sapux": [
+    "app/risks"
+  ]
 }
