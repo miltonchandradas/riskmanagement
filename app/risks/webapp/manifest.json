@@ -53,6 +53,9 @@
                 "sap.fe.templates": {}
             }
         },
+        "config": {
+			"fullWidth": true
+		},
         "models": {
             "@i18n": {
                 "type": "sap.ui.model.resource.ResourceModel",
