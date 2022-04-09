@@ -1,0 +1,12 @@
+# Generated services-manifest.yml based on template version 0.1.0
+# appName = risk-management
+---
+create-services:
+# ------------------------------------------------------------
+  - name:   risk-management-db
+    broker: hana  # 'hanatrial' on trial landscapes
+    plan: "hdi-shared"
+# ------------------------------------------------------------
+  - name:   risk-management-xsuaa
+    broker: xsuaa
+    plan: "broker"
