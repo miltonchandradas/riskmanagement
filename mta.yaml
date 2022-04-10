@@ -46,6 +46,35 @@ modules:
     - name: risk-management-db
     - name: risk-management-xsuaa
 
+# --------------------  APPROUTER -----------------------------
+ - name: risk-management-approuter
+# ------------------------------------------------------------
+   type: nodejs
+   path: approuter
+   requires:
+     - name: risk-management-xsuaa
+     - name: srv-api
+       group: destinations
+       properties:
+         forwardAuthToken: true
+         strictSSL: true
+         name: srv-binding
+         url: "~{srv-url}"
+   build-parameters:
+     requires:
+       - name: risk-management-app
+         artifacts:
+           - ./*
+         target-path: resources
+
+# ------------------- UI ------------------------
+ - name: risk-management-app
+# ------------------------------------------------------------
+   type: html5
+   path: app
+   build-parameters:
+     supported-platforms: []
+
 
 resources:
  # services extracted from CAP configuration
