@@ -23,7 +23,7 @@ module.exports = cds.service.impl(async function () {
       });
    });
 
-   // connect to remote service
+   // connect to remote OData service
    const BPsrv = await cds.connect.to("API_BUSINESS_PARTNER");
 
    /**
