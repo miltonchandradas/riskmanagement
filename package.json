@@ -65,7 +65,8 @@
             },
             "[production]": {
                "credentials": {
-                  "destination": "API_BUSINESS_PARTNER"
+                  "destination": "s4hana-cloud-extensibility",
+                  "path": "sap/opu/odata/sap/API_BUSINESS_PARTNER/"
                }
             }
          },
