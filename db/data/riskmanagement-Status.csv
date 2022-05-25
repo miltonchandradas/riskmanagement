@@ -1,0 +1,4 @@
+ID;description;longDescription;
+1;Critical;Status is critical and needs to be escalated;
+2;At Risk;Status is at risk and needs to be expedited;
+3;Normal;Status is normal.  No action necessary;

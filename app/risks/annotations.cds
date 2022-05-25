@@ -14,13 +14,14 @@ annotate RiskService.Risks with @(UI : {
             Value : descr
         }
     },
-    SelectionFields : [prio],
+    SelectionFields : [prio,status_ID],
     Identification  : [{Value : title}],
     // Define the table columns
     LineItem        : [
         {Value : title},
         {Value : miti_ID},
         {Value : owner},
+        {Value : status_ID},
         {Value : bp_BusinessPartner},
         {
             Value       : prio,

@@ -12,6 +12,14 @@ entity Risks : managed {
         impact      : Integer;
         bp          : Association to BusinessPartners;
         criticality : Integer;
+        status      : Association to Status;
+}
+
+@cds.odata.valuelist:true
+entity Status {
+    key ID          : Integer;
+        description : String;
+        longDescription: String;
 }
 
 entity Mitigations : managed {
@@ -25,10 +33,10 @@ entity Mitigations : managed {
 
 
 // using an external service from S/4
-using {  API_BUSINESS_PARTNER as external } from '../srv/external/API_BUSINESS_PARTNER.csn';
+using {API_BUSINESS_PARTNER as external} from '../srv/external/API_BUSINESS_PARTNER.csn';
 
 entity BusinessPartners as projection on external.A_BusinessPartner {
     key BusinessPartner,
-    LastName,
-    FirstName
+        LastName,
+        FirstName
 }

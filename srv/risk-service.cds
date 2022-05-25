@@ -28,6 +28,8 @@ service RiskService {
 
     annotate Mitigations with @odata.draft.enabled;
 
+    entity Status as projection on rm.Status;
+    
     @readonly
     entity BusinessPartners as projection on rm.BusinessPartners;
 }

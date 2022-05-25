@@ -11,6 +11,7 @@ annotate rm.Risks with {
     impact      @title : 'Impact';
     bp          @title : 'Business Partner';
     criticality @title : 'Criticality';
+    status      @title : 'Status';
 }
 
 // Annotate Miti elements
@@ -33,7 +34,7 @@ annotate rm.BusinessPartners with {
 }
 
 annotate rm.Risks with {
-    miti @(Common : {
+    miti   @(Common : {
         //show text, not id for mitigation in the context of risks
         Text            : miti.descr,
         TextArrangement : #TextOnly,
@@ -53,7 +54,7 @@ annotate rm.Risks with {
             ]
         }
     });
-    bp   @(Common : {
+    bp     @(Common : {
         Text            : bp.LastName,
         TextArrangement : #TextOnly,
         ValueList       : {
@@ -75,5 +76,29 @@ annotate rm.Risks with {
                 }
             ]
         }
-    })
+    });
+
+    status @(Common : {
+        Text            : status.description,
+        TextArrangement : #TextOnly,
+        ValueList       : {
+            Label          : 'Status',
+            CollectionPath : 'Status',
+            Parameters     : [
+                {
+                    $Type             : 'Common.ValueListParameterInOut',
+                    LocalDataProperty : status_ID,
+                    ValueListProperty : 'ID'
+                },
+                {
+                    $Type             : 'Common.ValueListParameterDisplayOnly',
+                    ValueListProperty : 'description'
+                },
+                {
+                    $Type             : 'Common.ValueListParameterDisplayOnly',
+                    ValueListProperty : 'longDescription'
+                }
+            ]
+        }
+    });
 }
