@@ -12,6 +12,7 @@ entity Risks : managed {
         impact      : Integer;
         bp          : Association to BusinessPartners;
         criticality : Integer;
+        test: Integer;
 }
 
 entity Mitigations : managed {
