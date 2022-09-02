@@ -1,0 +1,16 @@
+CLEANUP:
+----------------------------------------------------------------------------------------
+
+cf d risk-management-approuter -r -f
+cf d risk-management-srv -r -f
+cf d risk-management-db-deployer -r -f
+cf ds risk-management-destination-service -f
+cf ds risk-management-xsuaa -f
+cf ds risk-management-db -f
+
+
+BUILD & DEPLOY:
+----------------------------------------------------------------------------------------
+
+mbt build
+cf deploy mta_archives/risk-management_1.0.0.mtar
