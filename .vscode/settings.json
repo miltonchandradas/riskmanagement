@@ -3,5 +3,6 @@
     "**/.gitignore": true,
     "**/.git": true,
     "**/.vscode": true
-  }
+  },
+  "SAP HANA Database Explorer.displaySapWebAnalyticsStartupNotification": false
 }
