@@ -30,17 +30,25 @@ module.exports = cds.service.impl(async function () {
     * Event-handler for read-events on the BusinessPartners entity.
     * Each request to the API Business Hub requires the apikey in the header.
     */
-   this.on("READ", BusinessPartners, async (req) => {
+    this.on("READ", BusinessPartners, async (req) => {
       // The API Sandbox returns alot of business partners with empty names.
       // We don't want them in our application
       req.query.where("LastName <> '' and FirstName <> '' ");
+      delete req.query.SELECT.count;
+      console.log("READ Business Partners...");
 
-      return await BPsrv.transaction(req).send({
-         query: req.query,
-         headers: {
-            apikey: process.env.apikey,
-         },
-      });
+      try {
+         const tx = BPsrv.transaction(req);
+         return await tx.send({
+            query: req.query,
+            headers: {
+               apikey: process.env.apikey,
+            },
+         });
+      } catch (err) {
+         req.reject(err);
+      }
+
    });
 
    /**
