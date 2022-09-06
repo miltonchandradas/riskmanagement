@@ -1,0 +1,41 @@
+UNIT 1 and 2:
+----------------------------------------------------------------------------------------
+
+cds init
+cds add data
+cds watch
+
+
+UNIT 4:
+----------------------------------------------------------------------------------------
+
+cds import srv/API_BUSINESS_PARTNER.edmx
+
+
+UNIT 5:
+----------------------------------------------------------------------------------------
+
+cds cs hana hdi-shared risk-management-db
+cds add hana
+cf cs destination lite risk-management-destination-service
+cf cs xsuaa application risk-management-xsuaa -c xs-security.json
+
+cds add manifest
+cf push
+cf set-env risk-management-srv apikey JIz...
+cf restart risk-management-srv
+
+cds add mta
+mbt build
+cf deploy mta_archives/risk-management_1.0.0.mtar
+
+
+CLEANUP:
+----------------------------------------------------------------------------------------
+
+cf d risk-management-approuter -r -f
+cf d risk-management-db-deployer -r -f
+cf d risk-management-srv -r -f
+cf ds risk-management-db -f
+cf ds risk-management-destination-service -f
+cf ds risk-management-xsuaa -f
