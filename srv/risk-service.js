@@ -35,7 +35,7 @@ module.exports = cds.service.impl(async function () {
       // We don't want them in our application
       req.query.where("LastName <> '' and FirstName <> '' ");
       delete req.query.SELECT.count;
-      console.log("READ Business Partners...  Some changes");
+      console.log("READ Business Partners...  Some changes 1");
 
       try {
          const tx = BPsrv.transaction(req);
