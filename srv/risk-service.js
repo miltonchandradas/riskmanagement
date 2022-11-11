@@ -87,7 +87,7 @@ module.exports = cds.service.impl(async function () {
          res = await next();
          res = Array.isArray(res) ? res : [res];
 
-         console.log("This is a test...");
+         console.log("This is a test of CI/CD pipeline...");
 
          await Promise.all(
             res.map(async (risk) => {
