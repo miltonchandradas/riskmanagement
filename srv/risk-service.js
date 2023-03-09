@@ -59,17 +59,10 @@ module.exports = cds.service.impl(async function () {
       const expandIndex = req.query.SELECT.columns.findIndex(
          ({ expand, ref }) => expand && ref[0] === "bp"
       );
-      console.log(req.query.SELECT.columns);
+
       if (expandIndex < 0) return next();
 
       req.query.SELECT.columns.splice(expandIndex, 1);
-      if (
-         !req.query.SELECT.columns.find((column) =>
-            column.ref.find((ref) => ref == "bp_BusinessPartner")
-         )
-      ) {
-         req.query.SELECT.columns.push({ ref: ["bp_BusinessPartner"] });
-      }
 
       /*
             Instead of carrying out the expand, issue a separate request for each business partner
