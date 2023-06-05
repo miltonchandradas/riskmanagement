@@ -24,6 +24,12 @@ modules:
    path: gen/srv
    parameters:
      buildpack: nodejs_buildpack
+   build-parameters:
+     ignore:
+      - default-*.json
+      - .env
+      - "*node_modules*"
+      - package-lock.json
    requires:
     # Resources extracted from CAP configuration
     - name: risk-management-db
@@ -61,6 +67,7 @@ modules:
          name: srv-binding
          url: "~{srv-url}"
    build-parameters:
+     ignore: ["node_modules/"]
      requires:
        - name: risk-management-app
          artifacts:
